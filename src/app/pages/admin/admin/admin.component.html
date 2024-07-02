@@ -1,6 +1,5 @@
-<!-- admin.component.html -->
 <div class="admin-container">
- <app-animated-bg></app-animated-bg>
+  <app-animated-bg></app-animated-bg>
   <div class="flex min-h-full flex-col justify-center items-center px-6 py-12 lg:px-8 relative">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm z-10">
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign in to your account</h2>
@@ -13,7 +12,9 @@
             <p>{{ msg }}</p>
           </ng-container>
         </div>
-        <form class="space-y-6" (ngSubmit)="login()">
+
+        <!-- Login Form -->
+        <form class="space-y-6" *ngIf="isLoginMode" (ngSubmit)="login()">
           <div>
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
             <div class="mt-2">
@@ -38,9 +39,46 @@
           </div>
         </form>
 
-        <p class="mt-10 text-center text-sm text-gray-500">
-          Not a member?
-          <a (click)="register()" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register</a>
+        <!-- Registration Form -->
+        <form class="space-y-6" *ngIf="!isLoginMode" (ngSubmit)="register()">
+          <div>
+            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
+            <div class="mt-2">
+              <input [(ngModel)]="registerForm.name" id="name" name="name" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div>
+            <label for="emailRegister" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+            <div class="mt-2">
+              <input [(ngModel)]="registerForm.email" id="emailRegister" name="emailRegister" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div>
+            <label for="passwordRegister" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+            <div class="mt-2">
+              <input [(ngModel)]="registerForm.password" id="passwordRegister" name="passwordRegister" type="password" autocomplete="new-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div>
+            <label for="telephone" class="block text-sm font-medium leading-6 text-gray-900">Telephone</label>
+            <div class="mt-2">
+              <input [(ngModel)]="registerForm.telephone" id="telephone" name="telephone" type="tel" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
+          </div>
+        </form>
+
+        <p class="mt-6 text-center text-sm text-gray-500">
+          {{ isLoginMode ? "Not a member?" : "Already have an account?" }}
+          <a (click)="toggleMode()" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
+            {{ isLoginMode ? "Register" : "Sign in here" }}
+          </a>
         </p>
       </div>
     </div>

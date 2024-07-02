@@ -23,6 +23,17 @@ export class AdminServiceService {
       );
   }
 
+  registerAdmin(registerForm: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/register`, registerForm)
+      .pipe(
+        tap((admin: any) => {
+          this.loggedInAdmin = admin;
+          localStorage.setItem('adminDetails', JSON.stringify(admin));
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   getLoggedInAdmin(): any {
     return this.loggedInAdmin;
   }
