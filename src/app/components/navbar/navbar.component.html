@@ -1,0 +1,15 @@
+<!-- admindashboard.component.html -->
+<nav class="navbar">
+  <div class="container">
+    <div class="left-section">
+      <a routerLink="/admin" class="nav-link">{{ admin?.name |uppercase  }} Dashboard</a>
+      <a routerLink="/restaurants" class="nav-link">Restaurant</a>
+      <a routerLink="/users" class="nav-link">Users</a>
+
+      <a routerLink="/reports" class="nav-link">Reports</a>
+    </div>
+    <div class="right-section">
+      <button (click)="logout()" class="logout-button">Logout</button>
+    </div>
+  </div>
+</nav>

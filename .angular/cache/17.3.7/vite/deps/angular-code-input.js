@@ -34,8 +34,8 @@ import {
   ɵɵtemplate,
   ɵɵviewQuery
 } from "./chunk-U4O2ZPZH.js";
-import "./chunk-UKEHM6V6.js";
 import "./chunk-V2DXGMIT.js";
+import "./chunk-UKEHM6V6.js";
 import {
   __async
 } from "./chunk-ZDOIMVJD.js";

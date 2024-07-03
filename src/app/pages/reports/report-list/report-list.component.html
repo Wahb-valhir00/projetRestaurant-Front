@@ -1,0 +1,37 @@
+<!-- restaurant-list.component.html -->
+<div class="admin-dashboard">
+    <!-- Add the Animated Background Component -->
+    <app-animated-bg></app-animated-bg>
+  
+    <!-- Add the Navbar Component -->
+    <app-navbar></app-navbar>
+  
+    <!-- Main content area -->
+    <div class="content">
+      <div class="container">
+        <h2>Reports List</h2>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Restaurant</th>
+              <th>Message</th>
+              <th>Action</th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let report of reports">
+              <td>{{ report.user.email }}</td>
+              <td>{{ report.restaurant.name }}</td>
+              <td>{{ report.message }}</td>
+              <td>
+                <button (click)="deleteReports(report.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

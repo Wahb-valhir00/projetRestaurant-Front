@@ -1,0 +1,53 @@
+/* admindashboard.component.scss */
+
+.navbar {
+  background-color: #3E96D1; /* Update to desired background color */
+  color: #fff;
+  padding: 1rem;
+  position: relative; /* Ensure navbar position is relative */
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  background: transparent;
+
+  .left-section {
+    display: flex;
+    align-items: center;
+
+    .nav-link {
+      font-family: 'Poppins', sans-serif; /* Update font family to Poppins */
+            font-weight: bold;
+      font-size: 1.2rem;
+      color: #fff;
+      text-decoration: none;
+      margin-right: 2rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ccc;
+      }
+    }
+  }
+
+  .right-section {
+    .logout-button {
+      background: transparent;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+}

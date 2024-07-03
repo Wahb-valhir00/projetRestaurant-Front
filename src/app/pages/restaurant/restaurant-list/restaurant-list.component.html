@@ -1,0 +1,39 @@
+<!-- restaurant-list.component.html -->
+<div class="admin-dashboard">
+  <!-- Add the Animated Background Component -->
+  <app-animated-bg></app-animated-bg>
+
+  <!-- Add the Navbar Component -->
+  <app-navbar></app-navbar>
+
+  <!-- Main content area -->
+  <div class="content">
+    <div class="container">
+      <h2>Restaurant List</h2>
+      <input type="text" placeholder="Filter by name" [(ngModel)]="filterText" />
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Description</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let restaurant of filteredRestaurants()">
+            <td>{{ restaurant.name }}</td>
+            <td>{{ restaurant.address }}</td>
+            <td>{{ restaurant.description }}</td>
+            <td>{{ restaurant.phone }}</td>
+            <td>
+              <button (click)="editRestaurant(restaurant)">Edit</button>
+              <button (click)="deleteRestaurant(restaurant.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

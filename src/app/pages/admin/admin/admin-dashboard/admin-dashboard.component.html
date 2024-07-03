@@ -1,27 +1,41 @@
-<!-- admin-dashboard.component.html -->
+<!-- Wrapper for the entire dashboard -->
+<div class="admin-dashboard">
+  <!-- Add the Animated Background Component -->
+  <app-animated-bg></app-animated-bg>
 
+  <!-- Add the Navbar Component -->
+  <app-navbar></app-navbar>
 
-  <div class="content-container bg-gray-100 min-h-screen relative z-10">
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-800 text-white shadow-lg relative z-20">
-      <div class="container mx-auto px-4 py-3">
-        <div class="flex justify-between items-center">
-          <div class="text-2xl font-semibold">{{ admin?.name | uppercase }} Dashboard</div>
-          <div class="flex space-x-4">
-            <a href="#" class="hover:text-gray-300">User</a>
-            <a href="#" class="hover:text-gray-300">Restaurant</a>
-            <a href="#" class="hover:text-gray-300">Ratings</a>
-            <a href="#" class="hover:text-gray-300">Reports</a>
-          </div>
-          <button (click)="logout()" class="text-gray-300 hover:text-white">Logout</button>
+  <!-- Main content area -->
+  <div class="content">
+    <div class="dashboard-cards">
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa fa-users"></i>
+        </div>
+        <div class="card-info">
+          <h3>{{ userCount }}</h3>
+          <p>Users</p>
         </div>
       </div>
-    </nav>
-
-    <!-- Main Content -->
-      <div class="admin-dashboard-container relative">
-        <app-animated-bg></app-animated-bg>
-      <!-- Add your dashboard content here -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa fa-utensils"></i>
+        </div>
+        <div class="card-info">
+          <h3>{{ restaurantCount }}</h3>
+          <p>Restaurants</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa fa-file-alt"></i>
+        </div>
+        <div class="card-info">
+          <h3>{{ reportCount }}</h3>
+          <p>Reports</p>
+        </div>
+      </div>
     </div>
   </div>
-
+</div>
