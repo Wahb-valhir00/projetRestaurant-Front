@@ -1,0 +1,54 @@
+<div class="login-container">
+    <div class="form-container" *ngIf="isLoginMode; else registerTemplate">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="Enter your email" />
+          <div *ngIf="loginForm.get('email')?.errors && isSubmitted" class="error-msg">
+            <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</div>
+                  </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" placeholder="Enter your password" />
+          <div *ngIf="loginForm.get('password')?.errors && isSubmitted" class="error-msg">
+            <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+                  </div>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      </form>
+      <div *ngIf="errorMsg.length > 0" class="error-msg">
+        <div *ngFor="let msg of errorMsg">{{ msg }}</div>
+      </div>
+      <p>Don't have an account? <a href="#" (click)="isLoginMode = false">Register</a></p>
+    </div>
+  
+    <ng-template #registerTemplate>
+      <h2>Register</h2>
+      <form >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email"  name="email" placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password"name="password" placeholder="Enter your password" />
+        </div>
+        <div class="form-group">
+          <label for="telephone">Telephone</label>
+          <input type="tel" id="telephone"name="telephone" placeholder="Enter your telephone" />
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <div *ngIf="errorMsg.length > 0" class="error-msg">
+        <div *ngFor="let msg of errorMsg">{{ msg }}</div>
+      </div>
+      <p>Already have an account? <a href="#" (click)="isLoginMode = true">Login</a></p>
+    </ng-template>
+  </div>

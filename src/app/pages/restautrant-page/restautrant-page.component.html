@@ -1,0 +1,17 @@
+<app-not-found [visible]="!restaurant" notFoundMessage="Product Not Found!"
+resetLinkText="Back To Homepage"></app-not-found>
+
+<div *ngIf="restaurant" class="container">
+    <img [src]="restaurant.imageUrl" [alt]="restaurant.name" />
+    <div class="details">
+      <div class="header">
+          <span class="name">
+              {{restaurant.name}}
+          </span>
+        </div>
+
+
+
+
+        <button (click)="addToCartt()">Add To Cart</button>
+    </div>

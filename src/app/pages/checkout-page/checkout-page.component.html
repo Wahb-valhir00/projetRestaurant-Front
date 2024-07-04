@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="content">
+      <app-title title="Order Form" ></app-title>
+  
+      <order-items-list [order]="order"></order-items-list>
+    </div>
+    <div class="map">
+      <app-title
+      title="Choose Your Address On Map"
+     ></app-title>
+  
+    </div>
+    <div class="buttons-container">
+      <div class="buttons">
+        <button (click)="createOrder()">
+          Go To Payment
+        </button>
+      </div>
+    </div>
+  </div>
